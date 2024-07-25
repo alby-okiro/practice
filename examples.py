@@ -21,23 +21,40 @@
 #         print(text)
 # hello_world('James')
 #Bank Account and Transactions
-def bank_account():
-    print("Hello, How much would you like to deposit?")
-    balance = int(input())
-    def get_balance():
-        return balance
-    def deposit(amount):
-        nonlocal balance
-        balance += amount
-        return balance
-    def withdraw():
-        print("How much would you like to withdraw?")
-        nonlocal balance
-        balance -= int(input())
-        return balance
-    return get_balance, deposit, withdraw
+# def bank_account():
+#     print("Hello, How much would you like to deposit?")
+#     balance = int(input())
+#     def get_balance():
+#         return balance
+#     def deposit(amount):
+#         nonlocal balance
+#         balance += amount
+#         return balance
+#     def withdraw():
+#         print("How much would you like to withdraw?")
+#         nonlocal balance
+#         balance -= int(input())
+#         return balance
+#     return get_balance, deposit, withdraw
 
-get_balance, deposit, withdraw = bank_account()
-balance = get_balance()
-withdraw()
-print(balance)
+# get_balance, deposit, withdraw = bank_account()
+# balance = get_balance()
+# withdraw()
+# print(balance)
+
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+    def get_balance(self):
+        return self.balance
+    def deposit(self):
+        print("How much would you like to deposit?")
+        self.balance += int(input())
+        return self.balance
+    def withdraw(self):
+        print("How much would you like to withdraw?")
+        self.balance -= int(input())
+
+
+p1 = BankAccount(5000)
+print(p1.deposit())
